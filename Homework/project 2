@@ -1,1 +1,40 @@
+from multprocessing 
+import Pool, cpu_count
+import time 
 
+def prime_number (n):
+    if n <= 1:
+        return False
+    if n <= 3:
+        return True
+    if n % 2 == 0 or n % 3 == 0:
+        return False
+    i += 6
+    while i * i <= n:
+        if n % i == 0 or n % (i + 2) == 0:
+            return False
+        i += 6
+    return True
+
+def main():
+     start = time.time()
+     end = time.time + 180
+     highest_prime_number = 0
+     starting_number = 0
+     intrevals = 10000
+
+     with Pool(cpu_count()) as pool:while time.time() < end:
+             numbers = list(range(starting_number, starting_number + intrevals))
+             results = pool.map(prime_number, numbers)
+                for i, prime_number in enumerate(results):):
+                    if prime:
+                        highest_prime_number = numbers + i
+                number += intrevals
+             
+
+       print ("Multiprocessing prime number finder")
+        print (f"time taken: {time.time() - start:.2f} seconds")
+        print("Highest prime number found: ", highest_prime_number)
+     
+if __name__ == "__main__":
+    main()
